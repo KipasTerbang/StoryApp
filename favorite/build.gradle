@@ -1,0 +1,37 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: '../shared_dependencies.gradle'
+
+android {
+    namespace 'com.dicoding.storyapp.favorite'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+        //noinspection OldTargetApi
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation project(':core')
+    implementation project(':app')
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+}
